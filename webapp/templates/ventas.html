@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="{{ url_for('static',filename='estilos.css') }}">
+</head>
+<body>
+
+  <div class="sales">
+    <h2>Ventas del día</h2>
+    <div class="sales-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Cliente</th>
+            <th>Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Producto 1</td>
+            <td>3</td>
+            <td>Juan Perez</td>
+            <td>15/05/2023</td>
+          </tr>
+          <tr>
+            <td>Producto 2</td>
+            <td>1</td>
+            <td>Maria Gomez</td>
+            <td>15/05/2023</td>
+          </tr>
+          <tr>
+            <td>Producto 3</td>
+            <td>2</td>
+            <td>Pablo Ramirez</td>
+            <td>15/05/2023</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="buttons">
+      <a href="{{ url_for('products') }}" class="button">Productos</a>
+      <a href="{{ url_for('input') }}" class="button">Predicción</a>
+      <a href="{{ url_for('index') }}" class="button">Log Out</a>
+    </div>
+  </div>
+  
+           
+
+</body>
+</html>

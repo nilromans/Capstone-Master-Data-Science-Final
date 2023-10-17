@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='dropzone/dropzone.min.css') }}">
+</head>
+<body>
+
+  <div class="container">
+    <div class="navbar">
+      <a href="{{ url_for('products') }}" class="button">Productos</a>
+      <a href="{{ url_for('ventas') }}" class="button">Ventas</a>
+      <a href="{{ url_for('index') }}" class="button">Log Out</a>
+    </div>
+    <div id="main-container">
+      <div id="prediction-screen">
+        <div class="prediction">
+          <h2>Predicción de ventas</h2>
+        </div>
+      </div>
+      <div id="prediction-form">
+        <form action="{{ url_for('prediccion') }}" method="post" class="dropzone" id="my-dropzone">
+          <div class="fallback">
+            <input name="file" type="file" accept=".csv" />
+          </div>
+        </form>
+        <input type="button" class="button" value="Predecir" onclick="submitForm()">
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='dropzone/js/dropzone.min.js') }}"></script>
+  <script>
+    function submitForm() {
+  var form = document.getElementById("my-dropzone");
+  var formData = new FormData(form);
+
+  fetch("{{ url_for('prediccion') }}", {
+    method: "POST",
+    body: formData
+  })
+    .then(response => response.json())
+    .then(data => {
+      // Redirigir a la pantalla de resultado con los datos recibidos
+      var predictionSum = data.prediction_sum;
+      window.location.href = "{{ url_for('resultado') }}?prediction_sum=" + predictionSum;
+    })
+    .catch(error => console.error(error));
+}
+
+  </script>
+</body>
+</html>
+
+
+

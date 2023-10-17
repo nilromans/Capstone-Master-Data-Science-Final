@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="{{ url_for('static',filename='estilos.css') }}">
+</head>
+<body>
+
+    <div class="product-info">
+        <h2>Información de Productos</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Existencia</th>
+              <th>Proveedor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Producto 1</td>
+              <td>$10.00</td>
+              <td>100</td>
+              <td>Proveedor 1</td>
+            </tr>
+            <tr>
+              <td>Producto 2</td>
+              <td>$20.00</td>
+              <td>50</td>
+              <td>Proveedor 2</td>
+            </tr>
+            <tr>
+              <td>Producto 3</td>
+              <td>$15.00</td>
+              <td>75</td>
+              <td>Proveedor 1</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="buttons">
+          <a href="{{ url_for('ventas') }}" class="button">Ventas</a>
+          <a href="{{ url_for('input') }}" class="button">Predicción</a>
+          <a href="{{ url_for('index') }}" class="button">Log Out</a>
+        </div>
+      </div>
+           
+
+</body>
+</html>

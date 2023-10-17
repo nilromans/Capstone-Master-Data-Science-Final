@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+  <title>Resultado de la predicción</title>
+</head>
+<body>
+  <div id="prediction-result" class="resultado">
+    <h2>Resultado de la predicción</h2>
+    {% if prediction_sum %}
+      <h3>Total de ventas:</h3>
+      <p>{{ prediction_sum }}</p>
+    {% endif %}
+  </div>
+  <div id="download-link" class="resultado">
+    <a href="{{ url_for('descargar_prediccion') }}" class="button">Descargar predicción como CSV</a>
+  </div>
+</body>
+</html>
+
+
